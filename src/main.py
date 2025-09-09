@@ -148,19 +148,29 @@ if psc is not None: print(f"PSC:   {len(psc)} rows")
 
 # -------------------- Save --------------------
 
-out_gpkg = r"C:\Users\Ali.MorshediShahreba\OneDrive - Arup\Projects\IIa\Drought IiA\Code\Drought-Risk\data\dwmap_extract.gpkg"
-ensure_dir_for_file(out_gpkg)
+# out_gpkg = r"C:\Users\Ali.MorshediShahreba\OneDrive - Arup\Projects\IIa\Drought IiA\Code\Drought-Risk\data\dwmap_extract.gpkg"
+#ensure_dir_for_file(out_gpkg)
 
-cws.to_file(out_gpkg,  layer="EPA_CWS_Boundaries",       driver="GPKG")
-ssa.to_file(out_gpkg,  layer="EPA_Sole_Source_Aquifers", driver="GPKG")
-huc12.to_file(out_gpkg, layer="EPA_HUC12_Subwatersheds", driver="GPKG")
-huc10.to_file(out_gpkg, layer="EPA_HUC10_Watersheds",    driver="GPKG")
-if wbd12 is not None:
-    wbd12.to_file(out_gpkg, layer="USGS_WBD_HUC12",      driver="GPKG")
-if ust is not None:
-    ust.to_file(out_gpkg,  layer="UST",                  driver="GPKG")
-if psc is not None:
-    psc.to_file(out_gpkg,  layer="PSC",                  driver="GPKG")
+#cws.to_file(out_gpkg,  layer="EPA_CWS_Boundaries",       driver="GPKG")
+#ssa.to_file(out_gpkg,  layer="EPA_Sole_Source_Aquifers", driver="GPKG")
+#huc12.to_file(out_gpkg, layer="EPA_HUC12_Subwatersheds", driver="GPKG")
+##huc10.to_file(out_gpkg, layer="EPA_HUC10_Watersheds",    driver="GPKG")
+#if wbd12 is not None:
+ #   wbd12.to_file(out_gpkg, layer="USGS_WBD_HUC12",      driver="GPKG")
+#if ust is not None:
+  #  ust.to_file(out_gpkg,  layer="UST",                  driver="GPKG")
+#if psc is not None:
+#    psc.to_file(out_gpkg,  layer="PSC",                  driver="GPKG")
 
 # Optional: fast columnar copy for tabular workflows
-cws.to_parquet(out_gpkg.replace(".gpkg", "_cws.parquet"))
+#cws.to_parquet(out_gpkg.replace(".gpkg", "_cws.parquet"))
+
+
+
+
+
+import matplotlib.pyplot as plt
+ax = huc12.plot(figsize=(10, 10), edgecolor="black", linewidth=0.2, alpha=0.6)
+ax.set_axis_off()
+plt.tight_layout()
+plt.show()
